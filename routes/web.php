@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\AuthenticateAdmin;
+use App\Http\Middleware\AuthenticateUser;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/admin', function () {
+    return view('layouts.admin.dashboard');
+})->name('admin.dashboard')->middleware('auth.admin');  // Middleware cho admin
+
+Route::get('/user', function () {
+    return view('layouts.client.home');
+})->name('client.home')->middleware('auth.user');  // Middleware cho user
+
+Route::get('/login', [LoginController::class, 'showForm']);
+Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
+
+
