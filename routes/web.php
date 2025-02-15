@@ -19,15 +19,17 @@ use App\Http\Middleware\AuthenticateUser;
 */
 
 
-Route::get('/', [LoginController::class, 'showForm'])->name('auth.login.form');
+Route::get('/', function () {
+    return view('layouts.home-page.index');
+});
 
 Route::get('/admin', function () {
     return view('layouts.admin.dashboard');
 })->name('admin.dashboard')->middleware('auth.admin'); 
 
 Route::get('/user', function () {
-    return view('layouts.client.home');
-})->name('client.home')->middleware('auth.user');
+    return view('layouts.client.index');
+})->name('client.index')->middleware('auth.user');
 
 Route::get('/login', [LoginController::class, 'showForm'])->name('auth.login');
 Route::post('/login', [LoginController::class, 'login'])->name('auth.login');
