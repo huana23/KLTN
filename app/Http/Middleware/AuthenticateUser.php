@@ -19,7 +19,7 @@ class AuthenticateUser
     {
         $user = Auth::user();
 
-        // Kiểm tra người dùng đã đăng nhập chưa và có phải user không
+        
         if (!$user || $user->is_admin != 0) {
             return redirect()->route('auth.login');
         }

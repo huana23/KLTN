@@ -16,7 +16,7 @@
             <div class="form-container">
                 <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
                 <h1 class="opacity">LOGIN</h1>
-                <form accept="" method="POST">
+                <form accept="" method="POST" action="{{ route('auth.login') }}">
                     @csrf
                     <input type="text" name="email" placeholder="USERNAME" />
                     <input type="password" name="password" placeholder="PASSWORD" />
