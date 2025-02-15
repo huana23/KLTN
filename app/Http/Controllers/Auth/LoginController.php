@@ -25,9 +25,9 @@ class LoginController extends Controller
                 return redirect()->route('admin.dashboard')->with('success', 'Hi admin');
             }
         
-            return redirect()->route('client.home')->with('success', 'Hi user');
+            return redirect()->route('client.index')->with('success', 'Hi user');
         }
 
-        return redirect()->route('auth.login')->with('error', 'An error has occurred. Please try again later.');
+        return redirect()->route('auth.login')->with('error', 'Email hoặc Mật khẩu sai .');
     }
 }

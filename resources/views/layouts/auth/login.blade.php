@@ -15,16 +15,26 @@
             <div class="circle circle-one"></div>
             <div class="form-container">
                 <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
-                <h1 class="opacity">LOGIN</h1>
+                <h1 class="opacity">Đăng Nhập</h1>
                 <form accept="" method="POST" action="{{ route('auth.login') }}">
                     @csrf
-                    <input type="text" name="email" placeholder="USERNAME" />
-                    <input type="password" name="password" placeholder="PASSWORD" />
-                    <button class="opacity">SUBMIT</button>
+                    <input type="text" name="email" placeholder="Tài Khoản" />
+                    @if ($errors->has('email'))
+                        <div class="error-message"> *
+                            {{ $errors->first('email') }}
+                        </div>
+                    @endif 
+                    <input type="password" name="password" placeholder="Mật Khẩu" />
+                    @if ($errors->has('password'))
+                        <div class="error-message"> *
+                            {{ $errors->first('password') }}
+                        </div>
+                    @endif 
+                    <button class="opacity">Đăng Nhập</button>
                 </form>
                 <div class="register-forget opacity">
-                    <a href="">REGISTER</a>
-                    <a href="">FORGOT PASSWORD</a>
+                    <a href="">Đăng kí</a>
+                    <a href="">Quên Mật Khẩu</a>
                 </div>
             </div>
             <div class="circle circle-two"></div>

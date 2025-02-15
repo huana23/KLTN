@@ -21,7 +21,7 @@ use App\Http\Middleware\AuthenticateUser;
 
 Route::get('/', function () {
     return view('layouts.home-page.index');
-});
+})->name('home-page');
 
 Route::get('/admin', function () {
     return view('layouts.admin.dashboard');
