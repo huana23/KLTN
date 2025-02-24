@@ -20,15 +20,15 @@
                     @csrf
                     <input type="text" name="email" placeholder="Tài Khoản" />
                     @if ($errors->has('email'))
-                        <div class="error-message"> *
+                        <span class="error-message">
                             {{ $errors->first('email') }}
-                        </div>
+                        </span>
                     @endif 
                     <input type="password" name="password" placeholder="Mật Khẩu" />
                     @if ($errors->has('password'))
-                        <div class="error-message"> *
+                        <span class="error-message">
                             {{ $errors->first('password') }}
-                        </div>
+                        </span>
                     @endif 
                     <button class="opacity">Đăng Nhập</button>
                 </form>

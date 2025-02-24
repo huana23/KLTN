@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\AuthenticateAdmin;
 use App\Http\Middleware\AuthenticateUser;
+use App\Http\Controllers\Auth\FunctionController;
 
 
 /*
@@ -23,9 +24,7 @@ Route::get('/', function () {
     return view('layouts.home-page.index');
 })->name('home-page');
 
-Route::get('/admin', function () {
-    return view('layouts.admin.dashboard');
-})->name('admin.dashboard')->middleware('auth.admin'); 
+Route::get('/admin', [FunctionController::class, 'index'])->middleware('auth.admin')->name('admin.dashboard');
 
 Route::get('/user', function () {
     return view('layouts.client.index');

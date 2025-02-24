@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use  App\Http\Requests\AuthRequest;
 
 class LoginController extends Controller
 {
@@ -12,7 +13,7 @@ class LoginController extends Controller
         return view('layouts.auth.login');
     }
 
-    public function login(Request $request) {
+    public function login(AuthRequest $request) {
         
         $email = $request->email;
         $password = $request->password;

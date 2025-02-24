@@ -15,6 +15,6 @@ class LogoutController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('auth.login'); 
+        return redirect()->route('auth.login')->with('success', 'Đăng xuất thành công.'); 
     }
 }

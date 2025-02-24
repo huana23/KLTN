@@ -16,14 +16,21 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $user = new User;
-        $user->name = 'admin';
+        $user->hoTen = 'admin';
+        $user->gioiTinh = true;
         $user->email = 'admin@gmail.com';
+        $user->maThanhVien = '001';
+        $user->dienThoai = '0905775301';
         $user->password = bcrypt('123456');
         $user->is_admin = true;
         $user->save();
 
         $user = new User;
-        $user->name = 'user';
+        $user->hoTen = 'user';
+        $user->gioiTinh = false;
+        $user->maThanhVien = '002';
+        $user->dienThoai = '0905775301';
+        $user->gioiTinh = true;
         $user->email = 'user@gmail.com';
         $user->password = bcrypt('123456');
         $user->is_admin = false;

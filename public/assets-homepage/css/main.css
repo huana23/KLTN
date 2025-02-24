@@ -861,6 +861,9 @@ section,
   align-items: center;
   justify-content: center;
 }
+.icon-box h3 a {
+  cursor:default;
+}
 
 .hero .icon-box i {
   font-size: 32px;
